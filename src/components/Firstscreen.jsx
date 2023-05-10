@@ -20,7 +20,7 @@ export default function Firstscreen() {
         backgroundRepeat="no-repeat"
         backgroundSize="cover"
         w={'100%'}
-        minHeight="100vh"
+        minHeight={['62vh', '100vh']}
         display="flex"
         alignItems="center"
         justifyContent="flex-start"
@@ -39,8 +39,12 @@ export default function Firstscreen() {
           </CardBody>
           <CardFooter flexDirection="row">
             <ButtonGroup>
-              <Button bg="#ECB939">Click here</Button>
-              <Button colorScheme="gray">Click here</Button>
+              <Button bg="#ECB939" borderRadius={'none'}>
+                Click here
+              </Button>
+              <Button colorScheme="gray" borderRadius={'none'}>
+                Click here
+              </Button>
             </ButtonGroup>
           </CardFooter>
         </VStack>
