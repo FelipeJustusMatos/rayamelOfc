@@ -5,7 +5,6 @@ import {
   CardFooter,
   CardHeader,
   Center,
-  Flex,
   Heading,
   SimpleGrid,
   Text,

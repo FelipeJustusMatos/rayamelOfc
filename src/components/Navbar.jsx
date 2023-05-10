@@ -1,5 +1,5 @@
+import { ChevronDownIcon, HamburgerIcon } from '@chakra-ui/icons';
 import {
-  Box,
   Button,
   ButtonGroup,
   Flex,
@@ -13,7 +13,6 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
-import { ChevronDownIcon, HamburgerIcon } from '@chakra-ui/icons';
 import React from 'react';
 import { logo } from '../assets/images';
 export default function Navbar() {

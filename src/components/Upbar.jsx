@@ -1,6 +1,6 @@
-import { Box, Flex, Text, VStack } from '@chakra-ui/react';
-import { FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
+import { FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 
 export default function ContactInfo() {
   return (

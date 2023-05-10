@@ -5,12 +5,10 @@ import {
   Card,
   CardBody,
   CardFooter,
-  CardHeader,
   Heading,
   Text,
   VStack,
 } from '@chakra-ui/react';
-import { Image } from '@chakra-ui/react';
 import React from 'react';
 
 export default function Firstscreen() {
