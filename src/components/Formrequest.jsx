@@ -25,11 +25,6 @@ export default function Tablerequest() {
       <Card align="center">
         <CardHeader>
           <VStack spacing={3}>
-            <Box justifyContent={'flex-end'}>
-              <Button color="black" borderRadius="full" bg="#ECB939">
-                contact
-              </Button>
-            </Box>
             <Heading size="md">
               <Text as="b">BOOK NOW YOUR TRANSFERR</Text>
             </Heading>
@@ -39,12 +34,12 @@ export default function Tablerequest() {
               flexDirection={flexDirection}
             >
               <Box margin={2}>
-                <Button color="black" borderRadius="none" bg="#ECB939">
+                <Button color="black" borderRadius={'md'} bg="#ECB939">
                   AIRPORT PRIVATE TRANSFER
                 </Button>
               </Box>
               <Spacer />
-              <Button color="black" borderRadius="none" bg="#ECB939">
+              <Button color="black" borderRadius={'md'} bg="#ECB939">
                 POINT TO POINT
               </Button>
             </ButtonGroup>
@@ -90,10 +85,10 @@ export default function Tablerequest() {
         </CardBody>
         <CardFooter>
           <ButtonGroup>
-            <Button color={'black'} borderRadius={'none'} bg="#ECB939">
+            <Button color={'black'} borderRadius={'md'} bg="#ECB939">
               Map
             </Button>
-            <Button color={'black'} borderRadius={'none'} bg="#ECB939">
+            <Button color={'black'} borderRadius={'md'} bg="#ECB939">
               Lets go
             </Button>
           </ButtonGroup>

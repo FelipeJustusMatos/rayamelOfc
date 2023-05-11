@@ -8,7 +8,7 @@ export default function Cardbook() {
         BOOK NOW YOUR TRANSFER
       </Text>
 
-      <Button bg="#ECB939" borderRadius={'none'}>
+      <Button bg="#ECB939" borderRadius={'md'}>
         Click here
       </Button>
     </Flex>

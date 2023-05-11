@@ -36,10 +36,10 @@ export default function Firstscreen() {
           <CardFooter flexDirection="row">
             <Box>
               <ButtonGroup>
-                <Button bg="#ECB939" borderRadius={'none'}>
+                <Button bg="#ECB939" borderRadius={'md'}>
                   Click here
                 </Button>
-                <Button colorScheme="gray" borderRadius={'none'}>
+                <Button colorScheme="gray" borderRadius={'md'}>
                   Click here
                 </Button>
               </ButtonGroup>
