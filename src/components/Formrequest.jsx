@@ -6,7 +6,6 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Flex,
   FormControl,
   FormLabel,
   Heading,
@@ -32,7 +31,7 @@ export default function Tablerequest() {
               </Button>
             </Box>
             <Heading size="md">
-              <Text as="b">BOOK NOW YOUR TRANSFER</Text>
+              <Text as="b">BOOK NOW YOUR TRANSFERR</Text>
             </Heading>
             <ButtonGroup
               justifyContent="center"
