@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Box,
   Button,
@@ -6,11 +5,11 @@ import {
   Card,
   CardBody,
   CardFooter,
-  Image,
   Heading,
   Text,
   VStack,
 } from '@chakra-ui/react';
+import React from 'react';
 import { theme } from '../assets/images/index.js';
 
 export default function Firstscreen() {
