@@ -45,7 +45,7 @@ export default function Services() {
             </CardBody>
             <Center>
               <CardFooter>
-                <Button>View here</Button>
+                <Button bg="#ECB939">View here</Button>
               </CardFooter>
             </Center>
           </Card>
@@ -69,7 +69,7 @@ export default function Services() {
             </CardBody>
             <Center>
               <CardFooter>
-                <Button>View here</Button>
+                <Button bg="#ECB939">View here</Button>
               </CardFooter>
             </Center>
           </Card>
@@ -93,7 +93,7 @@ export default function Services() {
             </CardBody>
             <Center>
               <CardFooter>
-                <Button>View here</Button>
+                <Button bg="#ECB939">View here</Button>
               </CardFooter>
             </Center>
           </Card>
