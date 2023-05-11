@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Card,
   CardBody,
@@ -11,6 +12,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import React from 'react';
+import { airport, beach, park } from '../assets/images/index.js';
 
 export default function Services() {
   return (
@@ -23,15 +25,13 @@ export default function Services() {
           w={'800px'}
           flexDirection={'row'}
         >
-          <Card textAlign={'center'}>
+          {/* AIRPORT */}
+          <Card textAlign={'center'} shadow={'xl'}>
             <CardHeader>
               <Center>
-                <Image
-                  borderRadius="md"
-                  boxSize="150px"
-                  src="https://bit.ly/dan-abramov"
-                  alt="Dan Abramov"
-                />
+                <Box>
+                  <Image src={airport} alt="airport" borderRadius="md" />
+                </Box>
               </Center>
               <Heading size="md">AIRPORT</Heading>
             </CardHeader>
@@ -40,35 +40,55 @@ export default function Services() {
                 View a summary of all your customers over the last month.
               </Text>
             </CardBody>
-            <CardFooter>
-              <Button>View here</Button>
-            </CardFooter>
+            <Center>
+              <CardFooter>
+                <Button>View here</Button>
+              </CardFooter>
+            </Center>
           </Card>
-          <Card>
+
+          {/* PARK */}
+          <Card textAlign={'center'} shadow={'xl'}>
             <CardHeader>
-              <Heading size="md"> THEME PARKS</Heading>
+              <Center>
+                <Box>
+                  <Image src={park} alt="airport" borderRadius="md" />
+                </Box>
+              </Center>
+              <Heading size="md">THEME PARK</Heading>
             </CardHeader>
-            <CardBody>
+            <CardBody textAlign={'center'}>
               <Text>
                 View a summary of all your customers over the last month.
               </Text>
             </CardBody>
-            <CardFooter>
-              <Button>View here</Button>
-            </CardFooter>
+            <Center>
+              <CardFooter>
+                <Button>View here</Button>
+              </CardFooter>
+            </Center>
           </Card>
-          <Card>
+
+          {/* BEACH */}
+          <Card textAlign={'center'} shadow={'xl'}>
             <CardHeader>
-              <Heading size="md"> BEACHES</Heading>
+              <Center>
+                <Box>
+                  <Image src={beach} alt="airport" borderRadius="md" />
+                </Box>
+              </Center>
+              <Heading size="md">BEACH</Heading>
             </CardHeader>
-            <CardBody>
+            <CardBody textAlign={'center'}>
               <Text>
                 View a summary of all your customers over the last month.
               </Text>
             </CardBody>
-            <CardFooter>
-              <Button>View here</Button>
-            </CardFooter>
+            <Center>
+              <CardFooter>
+                <Button>View here</Button>
+              </CardFooter>
+            </Center>
           </Card>
         </SimpleGrid>
       </Center>
