@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Card,
   CardBody,
@@ -7,11 +6,11 @@ import {
   CardHeader,
   Center,
   Heading,
+  Image,
   SimpleGrid,
   Text,
 } from '@chakra-ui/react';
 import React from 'react';
-import { Image } from '@chakra-ui/react';
 
 export default function Services() {
   return (
