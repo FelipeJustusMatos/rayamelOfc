@@ -1,6 +1,7 @@
 import React from 'react';
 import Cardbook from '../components/Cardbook';
 import Firstscreen from '../components/Firstscreen';
+import Footer from '../components/Footer';
 import Formrequest from '../components/Formrequest';
 import Navbar from '../components/Navbar';
 import Services from '../components/Services';
@@ -14,6 +15,7 @@ export default function Home() {
       <Cardbook />
       <Formrequest />
       <Services />
+      <Footer />
     </>
   );
 }
