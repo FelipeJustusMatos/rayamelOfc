@@ -37,7 +37,10 @@ export default function Services() {
             </CardHeader>
             <CardBody textAlign={'center'}>
               <Text>
-                View a summary of all your customers over the last month.
+                High-quality transport service with experienced multilingual
+                drivers and versatile fleet. Seamless airport transfers to
+                renowned Algarve towns like Albufeira, Lagos, Vilamoura, and
+                more.
               </Text>
             </CardBody>
             <Center>
@@ -59,7 +62,9 @@ export default function Services() {
             </CardHeader>
             <CardBody textAlign={'center'}>
               <Text>
-                View a summary of all your customers over the last month.
+                Convenient and comfortable transfers between Algarve hotels and
+                top amusement parks. Flexible scheduling and online reservations
+                for a hassle-free and enjoyable experience.
               </Text>
             </CardBody>
             <Center>
@@ -81,7 +86,9 @@ export default function Services() {
             </CardHeader>
             <CardBody textAlign={'center'}>
               <Text>
-                View a summary of all your customers over the last month.
+                Premier transportation services for exploring Algarve's
+                beautiful beaches. Trust our experienced drivers for a memorable
+                and convenient beach getaway.
               </Text>
             </CardBody>
             <Center>
