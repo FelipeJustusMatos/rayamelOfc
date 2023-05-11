@@ -20,32 +20,30 @@ export default function Firstscreen() {
         backgroundRepeat="no-repeat"
         backgroundSize="cover"
         w={'100%'}
-        minHeight={['60vh', '100vh']}
+        minHeight={['55vh', '80vh']}
         display="flex"
         alignItems="center"
         justifyContent="flex-start"
       >
-        <VStack alignItems="flex-start" spacing={3} textAlign="left">
+        <VStack fontSize={'lg'} pt={20} spacing={3} textAlign="left">
           <CardBody>
-            <Text color={'white'} size="md">
-              YOUR BEST TRAVEL
-            </Text>
-            <Heading size="lg" color={'white'}>
-              An Unforgettable Ride
-            </Heading>
-            <Text size="sm" color={'white'}>
+            <Text color={'white'}>YOUR BEST TRAVEL</Text>
+            <Heading color={'white'}>An Unforgettable Ride</Heading>
+            <Text color={'white'}>
               Let us take care of your transport. Just enjoy the view!
             </Text>
           </CardBody>
           <CardFooter flexDirection="row">
-            <ButtonGroup>
-              <Button bg="#ECB939" borderRadius={'none'}>
-                Click here
-              </Button>
-              <Button colorScheme="gray" borderRadius={'none'}>
-                Click here
-              </Button>
-            </ButtonGroup>
+            <Box>
+              <ButtonGroup>
+                <Button bg="#ECB939" borderRadius={'none'}>
+                  Click here
+                </Button>
+                <Button colorScheme="gray" borderRadius={'none'}>
+                  Click here
+                </Button>
+              </ButtonGroup>
+            </Box>
           </CardFooter>
         </VStack>
       </Box>

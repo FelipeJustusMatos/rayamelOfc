@@ -1,14 +1,17 @@
 import {
+  Box,
   Button,
   ButtonGroup,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
+  Flex,
   FormControl,
   FormLabel,
   Heading,
   Select,
+  Spacer,
   Text,
   useBreakpointValue,
   VStack,
@@ -22,7 +25,12 @@ export default function Tablerequest() {
     <>
       <Card align="center">
         <CardHeader>
-          <VStack spacing={2}>
+          <VStack spacing={3}>
+            <Box justifyContent={'flex-end'}>
+              <Button color="black" borderRadius="full" bg="#ECB939">
+                contact
+              </Button>
+            </Box>
             <Heading size="md">
               <Text as="b">BOOK NOW YOUR TRANSFER</Text>
             </Heading>
@@ -31,9 +39,12 @@ export default function Tablerequest() {
               alignItems="center"
               flexDirection={flexDirection}
             >
-              <Button color="black" borderRadius="none" bg="#ECB939">
-                AIRPORT PRIVATE TRANSFER
-              </Button>
+              <Box margin={2}>
+                <Button color="black" borderRadius="none" bg="#ECB939">
+                  AIRPORT PRIVATE TRANSFER
+                </Button>
+              </Box>
+              <Spacer />
               <Button color="black" borderRadius="none" bg="#ECB939">
                 POINT TO POINT
               </Button>
