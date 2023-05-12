@@ -31,9 +31,17 @@ export default function Navbar() {
       <Flex>
         <Image src={logo} maxH={['70px', '90px']}></Image>
       </Flex>
-      <Text as="b" fontSize={['md', '3xl']} flexDirection={'row'}>
-        RAYAMEL TRAVEL
-      </Text>
+      <Button
+        variant="ghost"
+        colorScheme="transparent"
+        onClick={() => {
+          navigate('/');
+        }}
+      >
+        <Text as="b" fontSize={['md', '3xl']} flexDirection={'row'}>
+          RAYAMEL TRAVEL
+        </Text>
+      </Button>
       <Flex mr={5} justifyContent="flex-end">
         <IconButton
           aria-label="Menu"
@@ -43,7 +51,13 @@ export default function Navbar() {
           display={{ base: 'block', md: 'none' }}
         />
         <ButtonGroup variant="ghost" display={{ base: 'none', md: 'flex' }}>
-          <Button as={Button} _hover={{ bg: '#ECB939' }}>
+          <Button
+            as={Button}
+            onClick={() => {
+              navigate('/');
+            }}
+            _hover={{ bg: '#ECB939' }}
+          >
             HOME PAGE
           </Button>
           <Button as={Button} _hover={{ bg: '#ECB939' }}>
@@ -76,11 +90,23 @@ export default function Navbar() {
         />
         <MenuList>
           <MenuGroup>
-            <MenuItem>HOME PAGE</MenuItem>
+            <MenuItem
+              onClick={() => {
+                navigate('/');
+              }}
+            >
+              HOME PAGE
+            </MenuItem>
             <MenuItem>OUR SERVICES</MenuItem>
             <MenuItem>BOOKING</MenuItem>
             <MenuItem>ABOUT US</MenuItem>
-            <MenuItem>PRIVACY POLICY</MenuItem>
+            <MenuItem
+              onClick={() => {
+                navigate('/Privacy');
+              }}
+            >
+              PRIVACY POLICY
+            </MenuItem>
           </MenuGroup>
         </MenuList>
       </Menu>
