@@ -15,6 +15,7 @@ import { theme } from '../assets/images/index.js';
 export default function Firstscreen() {
   return (
     <Card justifyContent={'center'}>
+      {/* this box define the bg img */}
       <Box
         backgroundImage={`linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent), url(${theme})`}
         backgroundPosition="center"
@@ -37,7 +38,8 @@ export default function Firstscreen() {
           <CardFooter flexDirection="row">
             <Box>
               <ButtonGroup>
-                <Button bg="#ECB939" borderRadius="md">
+                {/* button 1 */}
+                <Button bg="#ECB939" borderRadius="md ">
                   Click here
                 </Button>
                 <Button colorScheme="gray" borderRadius="md">

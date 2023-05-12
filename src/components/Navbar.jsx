@@ -15,9 +15,11 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { logo } from '../assets/images';
+import { useNavigate } from 'react-router-dom';
+
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const navigate = useNavigate();
   return (
     <Flex
       as="nav"
@@ -27,7 +29,7 @@ export default function Navbar() {
       bg="white"
     >
       <Flex>
-        <Image src={logo} maxH={'100px'}></Image>
+        <Image src={logo} maxH={'90px'}></Image>
       </Flex>
       <Text as="b" fontSize={['3xl']} flexDirection={'row'}>
         RAYAMEL TRAVEL
@@ -53,7 +55,13 @@ export default function Navbar() {
           <Button as={Button} _hover={{ bg: '#ECB939' }}>
             ABOUT US
           </Button>
-          <Button as={Button} _hover={{ bg: '#ECB939' }}>
+          <Button
+            as={Button}
+            _hover={{ bg: '#ECB939' }}
+            onClick={() => {
+              navigate('/Privacy');
+            }}
+          >
             PRIVACY POLICY
           </Button>
         </ButtonGroup>

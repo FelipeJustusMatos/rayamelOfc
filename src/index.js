@@ -1,14 +1,23 @@
-import { ColorModeScript } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 import * as ReactDOM from 'react-dom/client';
-import App from './App';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './Pages/Home';
+import Privacy from './Pages/Privacy';
 
-const container = document.getElementById('root');
-const root = ReactDOM.createRoot(container);
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '/Privacy',
+    element: <Privacy />,
+  },
+]);
 
-root.render(
-  <>
-    <ColorModeScript />
-    <App />
-  </>
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <ChakraProvider>
+    <RouterProvider router={router} />
+  </ChakraProvider>
 );
