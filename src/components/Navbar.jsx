@@ -29,9 +29,9 @@ export default function Navbar() {
       bg="white"
     >
       <Flex>
-        <Image src={logo} maxH={'90px'}></Image>
+        <Image src={logo} maxH={['70px', '90px']}></Image>
       </Flex>
-      <Text as="b" fontSize={['3xl']} flexDirection={'row'}>
+      <Text as="b" fontSize={['md', '3xl']} flexDirection={'row'}>
         RAYAMEL TRAVEL
       </Text>
       <Flex mr={5} justifyContent="flex-end">

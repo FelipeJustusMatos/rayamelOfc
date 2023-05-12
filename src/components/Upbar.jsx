@@ -9,6 +9,7 @@ export default function ContactInfo() {
         justifyContent={['center', 'space-between']}
         alignItems="center"
         direction={['column', 'row']}
+        maxH={'45px'}
       >
         <Flex alignItems="center" pr={[0, 4]}>
           <FaMapMarkerAlt />
