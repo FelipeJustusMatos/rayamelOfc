@@ -32,7 +32,7 @@ export default function Navbar() {
           navigate('/');
         }}
       >
-        <Text as="b" fontSize={['md', '3xl']} flexDirection={'row'}>
+        <Text pr={9} as="b" fontSize={['md', '3xl']} flexDirection={'row'}>
           RAYAMEL TRAVEL
         </Text>
       </Button>
@@ -63,10 +63,22 @@ export default function Navbar() {
           >
             OUR SERVICES
           </Button>
-          <Button as={Button} _hover={{ bg: '#ECB939' }}>
+          <Button
+            as={Button}
+            _hover={{ bg: '#ECB939' }}
+            onClick={() => {
+              navigate('/Booking');
+            }}
+          >
             BOOKING
           </Button>
-          <Button as={Button} _hover={{ bg: '#ECB939' }}>
+          <Button
+            as={Button}
+            _hover={{ bg: '#ECB939' }}
+            onClick={() => {
+              navigate('/Aboutus');
+            }}
+          >
             ABOUT US
           </Button>
           <Button
@@ -104,8 +116,20 @@ export default function Navbar() {
             >
               OUR SERVICES
             </MenuItem>
-            <MenuItem>BOOKING</MenuItem>
-            <MenuItem>ABOUT US</MenuItem>
+            <MenuItem
+              onClick={() => {
+                navigate('/Booking');
+              }}
+            >
+              BOOKING
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                navigate('/Aboutus');
+              }}
+            >
+              ABOUT US
+            </MenuItem>
             <MenuItem
               onClick={() => {
                 navigate('/Privacy');

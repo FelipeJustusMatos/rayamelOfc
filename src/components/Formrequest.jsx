@@ -26,7 +26,7 @@ export default function Tablerequest() {
         <CardHeader>
           <VStack spacing={3}>
             <Heading size="md">
-              <Text as="b">BOOK NOW YOUR TRANSFERR</Text>
+              <Text as="b">BOOK NOW YOUR TRANSFER</Text>
             </Heading>
             <ButtonGroup
               justifyContent="center"
