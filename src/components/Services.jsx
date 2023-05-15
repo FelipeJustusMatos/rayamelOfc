@@ -22,7 +22,7 @@ export default function Services() {
           <Center>
             <Box borderBottom={'1px solid black'}>
               <Text textAlign={'center'} as="b">
-                CATEGORIES
+                SOME FREQUENT DESTINATIONS
               </Text>
             </Box>
           </Center>
