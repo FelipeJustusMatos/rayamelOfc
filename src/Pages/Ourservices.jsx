@@ -8,12 +8,7 @@ export default function Ourservices() {
   return (
     <>
       <Upbar />
-      <Flex
-        className="Upbar"
-        flexDirection={'column'}
-        shadow={'md'}
-        borderBottom={'1px'}
-      >
+      <Flex className="Upbar" flexDirection={'column'} shadow={'md'}>
         <Navbar />
       </Flex>
       <Servicesscreen />

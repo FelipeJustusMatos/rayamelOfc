@@ -12,12 +12,7 @@ export default function Home() {
   return (
     <>
       <Upbar />
-      <Flex
-        className="Upbar"
-        flexDirection={'column'}
-        shadow={'md'}
-        borderBottom={'1px'}
-      >
+      <Flex className="Upbar" flexDirection={'column'} shadow={'md'}>
         <Navbar />
       </Flex>
 
