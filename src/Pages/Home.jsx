@@ -1,3 +1,4 @@
+import { Flex } from '@chakra-ui/react';
 import React from 'react';
 import Cardbook from '../components/Cardbook';
 import Firstscreen from '../components/Firstscreen';
@@ -6,13 +7,17 @@ import Formrequest from '../components/Formrequest';
 import Navbar from '../components/Navbar';
 import Services from '../components/Services';
 import Upbar from '../components/Upbar';
-import { Flex } from '@chakra-ui/react';
 import './index.css';
 export default function Home() {
   return (
     <>
-      <Flex className="Upbar" flexDirection={'column'}>
-        <Upbar />
+      <Upbar />
+      <Flex
+        className="Upbar"
+        flexDirection={'column'}
+        shadow={'md'}
+        borderBottom={'1px'}
+      >
         <Navbar />
       </Flex>
 

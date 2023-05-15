@@ -1,15 +1,22 @@
 import { Flex } from '@chakra-ui/react';
 import React from 'react';
 import Navbar from '../components/Navbar';
+import Policyscreen from '../components/Policyscreen';
 import Upbar from '../components/Upbar';
 
 export default function Privacy() {
   return (
     <>
-      <Flex className="Upbar" flexDirection={'column'}>
-        <Upbar />
+      <Upbar />
+      <Flex
+        className="Upbar"
+        flexDirection={'column'}
+        shadow={'md'}
+        borderBottom={'1px'}
+      >
         <Navbar />
       </Flex>
+      <Policyscreen />
     </>
   );
 }

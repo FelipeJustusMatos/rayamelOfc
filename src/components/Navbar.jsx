@@ -14,20 +14,14 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import React from 'react';
-import { logo } from '../assets/images';
 import { useNavigate } from 'react-router-dom';
+import { logo } from '../assets/images';
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
   return (
-    <Flex
-      as="nav"
-      alignItems={'center'}
-      justify="space-between"
-      padding={4}
-      bg="white"
-    >
+    <Flex as="nav" alignItems={'center'} justify="space-between" bg="white">
       <Flex>
         <Image src={logo} maxH={['70px', '90px']}></Image>
       </Flex>
@@ -60,7 +54,13 @@ export default function Navbar() {
           >
             HOME PAGE
           </Button>
-          <Button as={Button} _hover={{ bg: '#ECB939' }}>
+          <Button
+            as={Button}
+            _hover={{ bg: '#ECB939' }}
+            onClick={() => {
+              navigate('/Ourservices');
+            }}
+          >
             OUR SERVICES
           </Button>
           <Button as={Button} _hover={{ bg: '#ECB939' }}>
@@ -97,7 +97,13 @@ export default function Navbar() {
             >
               HOME PAGE
             </MenuItem>
-            <MenuItem>OUR SERVICES</MenuItem>
+            <MenuItem
+              onClick={() => {
+                navigate('/Ourservices');
+              }}
+            >
+              OUR SERVICES
+            </MenuItem>
             <MenuItem>BOOKING</MenuItem>
             <MenuItem>ABOUT US</MenuItem>
             <MenuItem
