@@ -1,4 +1,4 @@
-// import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import {
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <HashRouter>
+  <ChakraProvider>
     <RouterProvider router={router} />
-  </HashRouter>
+  </ChakraProvider>
 );
