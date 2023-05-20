@@ -7,6 +7,7 @@ import Formrequest from '../components/Formrequest';
 import Navbar from '../components/Navbar';
 import Services from '../components/Services';
 import Upbar from '../components/Upbar';
+import { Example } from '../components/ProgressBar';
 import './index.css';
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
 
       <Firstscreen />
       <Cardbook />
+      <Example />
       <Formrequest />
       <Services />
       <Footer />
