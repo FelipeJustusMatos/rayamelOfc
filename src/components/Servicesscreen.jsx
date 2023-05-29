@@ -12,8 +12,10 @@ import {
   Text,
 } from '@chakra-ui/react';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { airport, beach, park, car } from '../assets/images/index.js';
 export default function Servicesscreen() {
+  const navigate = useNavigate();
   return (
     <>
       <Center>
@@ -60,7 +62,13 @@ export default function Servicesscreen() {
               </CardBody>
 
               <CardFooter>
-                <Button variant="solid" bg="#ECB939">
+                <Button
+                  variant="solid"
+                  bg="#ECB939"
+                  onClick={() => {
+                    navigate('/Booking');
+                  }}
+                >
                   Click here
                 </Button>
               </CardFooter>
@@ -94,7 +102,13 @@ export default function Servicesscreen() {
               </CardBody>
 
               <CardFooter>
-                <Button variant="solid" bg="#ECB939">
+                <Button
+                  variant="solid"
+                  bg="#ECB939"
+                  onClick={() => {
+                    navigate('/Booking');
+                  }}
+                >
                   Click here
                 </Button>
               </CardFooter>
@@ -129,7 +143,13 @@ export default function Servicesscreen() {
               </CardBody>
 
               <CardFooter>
-                <Button variant="solid" bg="#ECB939">
+                <Button
+                  variant="solid"
+                  bg="#ECB939"
+                  onClick={() => {
+                    navigate('/Booking');
+                  }}
+                >
                   Click here
                 </Button>
               </CardFooter>

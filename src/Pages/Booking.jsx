@@ -1,9 +1,8 @@
 import { Flex } from '@chakra-ui/react';
 import React from 'react';
+import Formrequest from '../components/Formrequest';
 import Navbar from '../components/Navbar';
 import Upbar from '../components/Upbar';
-import Formrequest from '../components/Formrequest';
-import Services from '../components/Services';
 
 export default function Booking() {
   return (
@@ -13,7 +12,6 @@ export default function Booking() {
         <Navbar />
       </Flex>
       <Formrequest />
-      <Services />
     </>
   );
 }
