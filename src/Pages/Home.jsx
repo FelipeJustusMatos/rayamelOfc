@@ -20,7 +20,6 @@ export default function Home() {
       <Firstscreen />
       <Cardbook />
       <Example />
-      <Formrequest />
       <Services />
       <Footer />
     </>

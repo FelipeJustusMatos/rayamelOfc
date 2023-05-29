@@ -1,6 +1,6 @@
 import { Box, Button, Progress, Stack, Text } from '@chakra-ui/react';
 import React, { useState } from 'react';
-
+import Tablerequest from './Formrequest';
 const steps = [
   { title: 'Step 1', description: 'Contact Info' },
   { title: 'Step 2', description: 'Date & Time' },
@@ -26,7 +26,13 @@ export function Example() {
         <Progress value={progressPercent} colorScheme="yellow" />
       </Box>
       <Text>
-        Step {activeStep + 1}: <b>{steps[activeStep].description}</b>
+        Step {activeStep + 1}:
+        <b>
+          {steps[activeStep].description}{' '}
+          {activeStep === 0 ? <Tablerequest /> : null}
+          {activeStep === 1 ? <null /> : null}
+          {activeStep === 2 ? <null /> : null}
+        </b>
       </Text>
       <Stack direction="row" spacing={4}>
         {activeStep > 0 && (
