@@ -12,9 +12,11 @@ import {
   Text,
 } from '@chakra-ui/react';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { airport, beach, park } from '../assets/images/index.js';
 
 export default function Services() {
+  const navigate = useNavigate();
   return (
     <>
       <Center pt={5}>
@@ -53,7 +55,14 @@ export default function Services() {
               </CardBody>
               <Center>
                 <CardFooter>
-                  <Button bg="#ECB939">View here</Button>
+                  <Button
+                    bg="#ECB939"
+                    onClick={() => {
+                      navigate('/Ourservices');
+                    }}
+                  >
+                    View here
+                  </Button>
                 </CardFooter>
               </Center>
             </Card>
@@ -77,7 +86,14 @@ export default function Services() {
               </CardBody>
               <Center>
                 <CardFooter>
-                  <Button bg="#ECB939">View here</Button>
+                  <Button
+                    bg="#ECB939"
+                    onClick={() => {
+                      navigate('/Ourservices');
+                    }}
+                  >
+                    View here
+                  </Button>
                 </CardFooter>
               </Center>
             </Card>
@@ -101,7 +117,14 @@ export default function Services() {
               </CardBody>
               <Center>
                 <CardFooter>
-                  <Button bg="#ECB939">View here</Button>
+                  <Button
+                    bg="#ECB939"
+                    onClick={() => {
+                      navigate('/Ourservices');
+                    }}
+                  >
+                    View here
+                  </Button>
                 </CardFooter>
               </Center>
             </Card>

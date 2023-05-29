@@ -10,9 +10,11 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { theme } from '../assets/images/index.js';
 
 export default function Firstscreen() {
+  const navigate = useNavigate();
   return (
     <Card justifyContent={'center'}>
       {/* this box define the bg img */}
@@ -39,11 +41,23 @@ export default function Firstscreen() {
             <Box>
               <ButtonGroup>
                 {/* button 1 */}
-                <Button bg="#ECB939" borderRadius="md ">
-                  Click here
+                <Button
+                  bg="#ECB939"
+                  borderRadius="md "
+                  onClick={() => {
+                    navigate('/Booking');
+                  }}
+                >
+                  Booking
                 </Button>
-                <Button colorScheme="gray" borderRadius="md">
-                  Click here
+                <Button
+                  colorScheme="gray"
+                  borderRadius="md"
+                  onClick={() => {
+                    navigate('/Aboutus');
+                  }}
+                >
+                  Aboutus
                 </Button>
               </ButtonGroup>
             </Box>
