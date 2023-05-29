@@ -16,7 +16,7 @@ import { theme } from '../assets/images/index.js';
 export default function Firstscreen() {
   const navigate = useNavigate();
   return (
-    <Card justifyContent={'center'}>
+    <Card>
       {/* this box define the bg img */}
       <Box
         backgroundImage={`linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent), url(${theme})`}
@@ -26,10 +26,10 @@ export default function Firstscreen() {
         w="100%"
         minHeight={['55vh', '80vh']}
         display="flex"
+        justifyContent="center"
         alignItems="center"
-        justifyContent="flex-start"
       >
-        <VStack fontSize="lg" pt={20} spacing={3} textAlign="left">
+        <VStack fontSize="lg" spacing={3} textAlign="center">
           <CardBody>
             <Text color="white">YOUR BEST TRAVEL</Text>
             <Heading color="white">An Unforgettable Ride</Heading>
