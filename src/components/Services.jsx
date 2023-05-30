@@ -40,12 +40,7 @@ export default function Services() {
               <CardHeader>
                 <Center>
                   <Box>
-                    <Image
-                      src={airport}
-                      alt="airport"
-                      borderRadius="md"
-                      maxW={{ base: '50vh' }}
-                    />
+                    <Image src={airport} alt="airport" borderRadius="md" />
                   </Box>
                 </Center>
                 <Heading size="md">AIRPORT</Heading>
@@ -77,12 +72,7 @@ export default function Services() {
               <CardHeader>
                 <Center>
                   <Box>
-                    <Image
-                      src={park}
-                      alt="airport"
-                      borderRadius="md"
-                      maxW={{ base: '100%' }}
-                    />
+                    <Image src={park} alt="airport" borderRadius="md" />
                   </Box>
                 </Center>
                 <Heading size="md">THEME PARK</Heading>
@@ -113,12 +103,7 @@ export default function Services() {
               <CardHeader>
                 <Center>
                   <Box>
-                    <Image
-                      src={beach}
-                      alt="airport"
-                      borderRadius="md"
-                      maxW={{ base: '50vh' }}
-                    />
+                    <Image src={beach} alt="airport" borderRadius="md" />
                   </Box>
                 </Center>
                 <Heading size="md">BEACH</Heading>

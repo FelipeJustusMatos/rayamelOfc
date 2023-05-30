@@ -30,7 +30,7 @@ function FormPersonalDetails() {
       <Flex>
         <Formik onSubmit={handleSubmit} initialValues={initialValues}>
           {({ values, isSubmitting }) => (
-            <Form style={{ width: '90%' }}>
+            <Form>
               <Flex>
                 <Input name="nome" required borderColor="black" />
                 <Input name="sobrenome" required borderColor="black" />

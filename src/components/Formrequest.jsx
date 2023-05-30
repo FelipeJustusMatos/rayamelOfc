@@ -24,8 +24,8 @@ function Formrequest() {
   const Steps = [1, 2, 3];
 
   return (
-    <Flex h="100vh" align="center" justify="center">
-      <Center maxW={500} w="100%" py={10} px={2} flexDir="column">
+    <Flex pt={3} align="center" justify="center">
+      <Center maxW={500} w="100%" flexDir="column">
         <HStack spacing={4}>
           {Steps.map(item => (
             <Step key={item} index={item} active={step === item} />
