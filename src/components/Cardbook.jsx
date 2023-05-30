@@ -6,7 +6,7 @@ export default function Cardbook() {
   const navigate = useNavigate(); // Adicione esta linha para atribuir o hook useNavigate a uma variável
 
   return (
-    <Box pb={4}>
+    <Box>
       <Flex bg={'black'} h={100} justifyContent="center" alignItems={'center'}>
         <Text as="b" color="white" pr={5}>
           BOOK NOW YOUR TRANSFER

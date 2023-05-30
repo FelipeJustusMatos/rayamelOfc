@@ -2,7 +2,7 @@ import { FormControl, FormLabel, Select, VStack } from '@chakra-ui/react';
 
 const FormAccount = () => {
   return (
-    <VStack spacing={5}>
+    <VStack>
       <FormControl required>
         <FormLabel>Pick Up From</FormLabel>
         <Select

@@ -32,23 +32,44 @@ function FormPersonalDetails() {
           {({ values, isSubmitting }) => (
             <Form style={{ width: '90%' }}>
               <Flex>
-                <Input name="nome" required />
-                <Input name="sobrenome" required />
+                <Input name="nome" required borderColor="black" />
+                <Input name="sobrenome" required borderColor="black" />
               </Flex>
 
               <Flex>
-                <Input name="dataViajem" type="date" label="Data" required />
-                <Input name="horadeviajem" type="time" label="hora" required />
+                <Input
+                  name="dataViajem"
+                  type="date"
+                  label="Data"
+                  borderColor="black"
+                  required
+                />
+                <Input
+                  name="horadeviajem"
+                  type="time"
+                  label="hora"
+                  required
+                  borderColor="black"
+                />
               </Flex>
 
               <Flex>
-                <Input name="endereço" />
-                <Input name="cidade" disabled={!values.endereço} />
+                <Input name="endereço" borderColor="black" />
+                <Input
+                  name="cidade"
+                  disabled={!values.endereço}
+                  borderColor="black"
+                />
               </Flex>
 
               <Flex>
-                <Input name="email" type="email" required />
-                <Input name="celular" type="number" required />
+                <Input name="email" type="email" required borderColor="black" />
+                <Input
+                  name="celular"
+                  type="number"
+                  required
+                  borderColor="black"
+                />
               </Flex>
             </Form>
           )}
