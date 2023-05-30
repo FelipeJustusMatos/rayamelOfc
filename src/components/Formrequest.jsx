@@ -1,60 +1,55 @@
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  FormControl,
-  FormLabel,
-  Select,
-  // useBreakpointValue,
-} from '@chakra-ui/react';
-import React from 'react';
+import { useState } from 'react';
+import FormAccount from './FormAccount';
+import FormAddress from './FormAddress';
+import FormPersonalDetails from './FormPersonalDetails';
+import Step from './Step';
+import { Box, Button, Center, Divider, Flex, HStack } from '@chakra-ui/react';
 
-export default function Tablerequest() {
-  // const flexDirection = useBreakpointValue({ base: 'column', md: 'row' });
+function Formrequest() {
+  const [step, setStep] = useState(1);
+
+  const getCompStep = () => {
+    switch (step) {
+      case 1:
+        return <FormAccount />;
+      case 2:
+        return <FormAddress />;
+      case 3:
+        return <FormPersonalDetails />;
+      default:
+        return <FormAccount />;
+    }
+  };
+
+  const Steps = [1, 2, 3];
 
   return (
-    <>
-      <Card align="center">
-        <CardBody>
-          <FormControl isRequired>
-            <FormLabel>Pick Up From</FormLabel>
-            <Select placeholder="Select an Option">
-              <option>United Arab Emirates</option>
-              <option>Nigeria</option>
-            </Select>
-            <FormLabel>Drop Off to</FormLabel>
-            <Select placeholder="Select an Option">
-              <option>United Arab Emirates</option>
-              <option>Nigeria</option>
-            </Select>
-            <FormLabel>Adults</FormLabel>
-            <Select>
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </Select>
-            <FormLabel>Children</FormLabel>
-            <Select>
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </Select>
-            <FormLabel>Babies</FormLabel>
-            <Select>
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </Select>
-          </FormControl>
-        </CardBody>
-        <CardFooter></CardFooter>
-      </Card>
-    </>
+    <Flex h="100vh" align="center" justify="center">
+      <Center maxW={500} w="100%" py={10} px={2} flexDir="column">
+        <HStack spacing={4}>
+          {Steps.map(item => (
+            <Step key={item} index={item} active={step === item} />
+          ))}
+        </HStack>
+
+        <Divider my={4} borderColor="blackAlpha.700" />
+
+        <Box w="80%">{getCompStep()}</Box>
+
+        <HStack spacing={10} mt={4}>
+          <Button
+            onClick={() => setStep(step - 1)}
+            isDisabled={step <= 1 ? true : false}
+          >
+            Voltar
+          </Button>
+          <Button bg="#ECB939" onClick={() => step !== 3 && setStep(step + 1)}>
+            {step === 3 ? 'Enviar' : 'Próximo'}
+          </Button>
+        </HStack>
+      </Center>
+    </Flex>
   );
 }
+
+export default Formrequest;
