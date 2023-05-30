@@ -1,6 +1,5 @@
+import { Flex, Input } from '@chakra-ui/react';
 import { Form, Formik } from 'formik';
-import * as Yup from 'yup';
-import { Button, Flex, Input } from '@chakra-ui/react';
 
 function FormPersonalDetails() {
   const initialValues = {
