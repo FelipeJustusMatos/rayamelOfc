@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Link, Text } from '@chakra-ui/react';
+import { Box, Flex, Link, Text } from '@chakra-ui/react';
 import React from 'react';
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 
