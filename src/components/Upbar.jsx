@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Link, Text } from '@chakra-ui/react';
 import React from 'react';
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 
@@ -20,8 +20,13 @@ export default function ContactInfo() {
           <Text pl={2}>rayameltravel@gmail.com</Text>
         </Flex>
         <Flex alignItems="center">
-          <FaPhone />
-          <Text pl={2}>351 924 446 857</Text>
+          <FaPhone />{' '}
+          <Link
+            href="https://api.whatsapp.com/send/?phone=%2B5579999441661&text&type=phone_number&app_absent=0"
+            isExternal
+          >
+            351 924 446 857
+          </Link>
         </Flex>
       </Flex>
     </Box>

@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Link, Text } from '@chakra-ui/react';
 import React from 'react';
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 import CopyrightNotice from './CopyrightNotice';
@@ -25,7 +25,12 @@ export default function Footer() {
           {/* phone */}
           <Flex alignItems="center">
             <FaPhone />
-            <Text pl={2}>351 924 446 857</Text>
+            <Link
+              href="https://api.whatsapp.com/send/?phone=%2B5579999441661&text&type=phone_number&app_absent=0"
+              isExternal
+            >
+              351 924 446 857
+            </Link>
           </Flex>
 
           <CopyrightNotice />
