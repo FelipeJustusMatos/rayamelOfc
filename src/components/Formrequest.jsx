@@ -1,9 +1,9 @@
+import { Box, Button, Card, Center, Divider, HStack } from '@chakra-ui/react';
 import { useState } from 'react';
 import FormAccount from './FormAccount';
 import FormAddress from './FormAddress';
 import FormPersonalDetails from './FormPersonalDetails';
 import Step from './Step';
-import { Box, Button, Center, Divider, Flex, HStack } from '@chakra-ui/react';
 
 function Formrequest() {
   const [step, setStep] = useState(1);
@@ -24,8 +24,8 @@ function Formrequest() {
   const Steps = [1, 2, 3];
 
   return (
-    <Flex pt={3} align="center" justify="center">
-      <Center maxW={500} w="100%" flexDir="column">
+    <Card align="center" justifyContent="center">
+      <Center minH={600} maxW={500} w="100%" flexDir="column">
         <HStack spacing={4}>
           {Steps.map(item => (
             <Step key={item} index={item} active={step === item} />
@@ -48,7 +48,7 @@ function Formrequest() {
           </Button>
         </HStack>
       </Center>
-    </Flex>
+    </Card>
   );
 }
 

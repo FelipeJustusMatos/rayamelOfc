@@ -1,4 +1,4 @@
-import { Flex, Input } from '@chakra-ui/react';
+import { Card, Input, VStack } from '@chakra-ui/react';
 import { Form, Formik } from 'formik';
 
 function FormPersonalDetails() {
@@ -26,56 +26,54 @@ function FormPersonalDetails() {
   };
 
   return (
-    <Flex>
-      <Flex>
-        <Formik onSubmit={handleSubmit} initialValues={initialValues}>
-          {({ values, isSubmitting }) => (
-            <Form>
-              <Flex>
-                <Input name="nome" required borderColor="black" />
-                <Input name="sobrenome" required borderColor="black" />
-              </Flex>
+    <VStack minH={'50vh'}>
+      <Formik onSubmit={handleSubmit} initialValues={initialValues}>
+        {({ values, isSubmitting }) => (
+          <Form>
+            <Card>
+              <Input name="nome" required borderColor="black" />
+              <Input name="sobrenome" required borderColor="black" />
+            </Card>
 
-              <Flex>
-                <Input
-                  name="dataViajem"
-                  type="date"
-                  label="Data"
-                  borderColor="black"
-                  required
-                />
-                <Input
-                  name="horadeviajem"
-                  type="time"
-                  label="hora"
-                  required
-                  borderColor="black"
-                />
-              </Flex>
+            <Card display={'flex-box'}>
+              <Input
+                name="dataViajem"
+                type="date"
+                label="Data"
+                borderColor="black"
+                required
+              />
+              <Input
+                name="horadeviajem"
+                type="time"
+                label="hora"
+                required
+                borderColor="black"
+              />
+            </Card>
 
-              <Flex>
-                <Input name="endereço" borderColor="black" />
-                <Input
-                  name="cidade"
-                  disabled={!values.endereço}
-                  borderColor="black"
-                />
-              </Flex>
+            <Card display={'flex-box'}>
+              <Input name="endereço" borderColor="black" />
+              <Input
+                name="cidade"
+                disabled={!values.endereço}
+                borderColor="black"
+              />
+            </Card>
 
-              <Flex>
-                <Input name="email" type="email" required borderColor="black" />
-                <Input
-                  name="celular"
-                  type="number"
-                  required
-                  borderColor="black"
-                />
-              </Flex>
-            </Form>
-          )}
-        </Formik>
-      </Flex>
-    </Flex>
+            <Card display={'flex-box'}>
+              <Input name="email" type="email" required borderColor="black" />
+              <Input
+                name="celular"
+                type="number"
+                required
+                borderColor="black"
+              />
+            </Card>
+          </Form>
+        )}
+      </Formik>
+    </VStack>
   );
 }
 

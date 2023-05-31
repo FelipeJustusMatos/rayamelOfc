@@ -1,11 +1,17 @@
-import { Input, VStack } from '@chakra-ui/react';
+import { Card, Input, VStack } from '@chakra-ui/react';
 
 const FormAddress = () => {
   return (
-    <VStack>
-      <Input placeholder="Cidade, UF" borderColor="black" />
-      <Input placeholder="Rua" borderColor="black" />
-      <Input placeholder="CEP" borderColor="black" />
+    <VStack minH={'50vh'} spacing={4}>
+      <Card display={'flex-box'}>
+        <Input placeholder="Cidade, UF" borderColor="black" />
+      </Card>
+      <Card display={'flex-box'}>
+        <Input placeholder="Rua" borderColor="black" />
+      </Card>
+      <Card display={'flex-box'}>
+        <Input placeholder="CEP" borderColor="black" />
+      </Card>
     </VStack>
   );
 };
