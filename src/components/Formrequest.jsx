@@ -36,7 +36,7 @@ function Formrequest() {
 
         <Box w="80%">{getCompStep()}</Box>
 
-        <HStack spacing={10} mt={4}>
+        <HStack mt={4}>
           <Button
             onClick={() => setStep(step - 1)}
             isDisabled={step <= 1 ? true : false}
