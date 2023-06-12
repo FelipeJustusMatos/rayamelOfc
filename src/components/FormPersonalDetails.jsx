@@ -1,4 +1,4 @@
-import { Card, Input, VStack } from '@chakra-ui/react';
+import { Card, FormLabel, Input, VStack } from '@chakra-ui/react';
 import { Form, Formik } from 'formik';
 
 function FormPersonalDetails() {
@@ -13,12 +13,6 @@ function FormPersonalDetails() {
     celular: '',
   };
 
-  //   const [input, setInput] = useState('');
-
-  //   const handleInputChange = e => setInput(e.target.value);
-
-  //   const isError = input === '';
-
   const handleSubmit = (values, { setSubmitting }) => {
     console.log(values);
 
@@ -31,8 +25,20 @@ function FormPersonalDetails() {
         {({ values, isSubmitting }) => (
           <Form>
             <Card>
-              <Input name="nome" required borderColor="black" />
-              <Input name="sobrenome" required borderColor="black" />
+              <FormLabel>Name</FormLabel>
+              <Input
+                placeholder="Select option"
+                name="nome"
+                required
+                borderColor="black"
+              />
+              <FormLabel>Name</FormLabel>
+              <Input
+                placeholder="Select option"
+                name="sobrenome"
+                required
+                borderColor="black"
+              />
             </Card>
 
             <Card display={'flex-box'}>
@@ -56,7 +62,7 @@ function FormPersonalDetails() {
               <Input name="endereço" borderColor="black" />
               <Input
                 name="cidade"
-                disabled={!values.endereço}
+                // disabled={!values.endereço}
                 borderColor="black"
               />
             </Card>

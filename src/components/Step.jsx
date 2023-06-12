@@ -1,10 +1,10 @@
+import { Button, Center } from '@chakra-ui/react';
 import React from 'react';
-import * as C from '@chakra-ui/react';
 
 const Step = ({ index, active }) => {
   return (
-    <C.Center>
-      <C.Box
+    <Center>
+      <Button
         py={1}
         px={4}
         borderRadius={2}
@@ -13,8 +13,8 @@ const Step = ({ index, active }) => {
         style={{ scale: active ? '1.2' : 'none' }}
       >
         {index}
-      </C.Box>
-    </C.Center>
+      </Button>
+    </Center>
   );
 };
 
