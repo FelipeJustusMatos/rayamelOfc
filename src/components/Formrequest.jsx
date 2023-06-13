@@ -16,37 +16,52 @@ import FormAddress from './FormAddress';
 import FormPersonalDetails from './FormPersonalDetails';
 
 function Formrequest() {
-  const [input, setInput] = useState('');
-  const isError = input === '';
-  const handleInputChange = e => setInput(e.target.value);
-  console.log(input);
+  const [pickupLocation, setPickupLocation] = useState('');
+  const [dropOffLocation, setDropOffLocation] = useState('');
+  const [step, setStep] = useState(1);
+
+  const handlePickupLocationChange = e => {
+    setPickupLocation(e.target.value);
+  };
+
+  const handleDropOffLocationChange = e => {
+    setDropOffLocation(e.target.value);
+  };
+
+  const isInputInvalid = pickupLocation === '' || dropOffLocation === '';
+
+  const handleNextStep = () => {
+    if (step !== 3) {
+      setStep(step + 1);
+    }
+  };
   const FormAccount = () => {
     return (
       <>
         <VStack minH={'50vh'}>
-          <FormControl isRequired isInvalid={isError}>
+          <FormControl isRequired isInvalid={isInputInvalid}>
             <FormLabel>Pick Up From</FormLabel>
-            <Select borderColor="black" onChange={handleInputChange}>
+            <Select borderColor="black" onChange={handlePickupLocationChange}>
               <option value="">select</option>
               <option value="local2">Option 2</option>
               <option value="local3">Option 3</option>
               <option value="local4">Option 4</option>
               <option value="local5">Option 5</option>
             </Select>
-            {!isError ? null : (
+            {!isInputInvalid ? null : (
               <FormErrorMessage>Local is required.</FormErrorMessage>
             )}
           </FormControl>
-          <FormControl isRequired isInvalid={isError}>
+          <FormControl isRequired isInvalid={isInputInvalid}>
             <FormLabel isRequired> Drop Off to</FormLabel>
-            <Select onChange={handleInputChange} borderColor="black">
+            <Select onChange={handleDropOffLocationChange} borderColor="black">
               <option value="">select</option>
               <option value="local2">Option 2</option>
               <option value="local3">Option 3</option>
               <option value="local4">Option 4</option>
               <option value="local5">Option 5</option>
             </Select>{' '}
-            {!isError ? null : (
+            {!isInputInvalid ? null : (
               <FormErrorMessage>Destino Local is required.</FormErrorMessage>
             )}
           </FormControl>
@@ -68,8 +83,6 @@ function Formrequest() {
       </>
     );
   };
-
-  const [step, setStep] = useState(1);
 
   const getCompStep = () => {
     switch (step) {
@@ -126,8 +139,8 @@ function Formrequest() {
             </Button>
             <Button
               bg="#ECB939"
-              onClick={() => step !== 3 && setStep(step + 1)}
-              isDisabled={input === ''}
+              onClick={handleNextStep}
+              isDisabled={isInputInvalid}
             >
               {step === 3 ? 'Enviar' : 'Próximo'}
             </Button>
