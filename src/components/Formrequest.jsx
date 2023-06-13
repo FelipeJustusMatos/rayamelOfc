@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import FormAddress from './FormAddress';
-import FormPersonalDetails from './FormPersonalDetails';
+import FormDetailsTravel from './FormDetailsTravel';
 
 function Formrequest() {
   const [pickupLocation, setPickupLocation] = useState('');
@@ -52,6 +52,7 @@ function Formrequest() {
               <FormErrorMessage>Local is required.</FormErrorMessage>
             )}
           </FormControl>
+
           <FormControl isRequired isInvalid={isInputInvalid}>
             <FormLabel isRequired> Drop Off to</FormLabel>
             <Select onChange={handleDropOffLocationChange} borderColor="black">
@@ -65,19 +66,31 @@ function Formrequest() {
               <FormErrorMessage>Destino Local is required.</FormErrorMessage>
             )}
           </FormControl>
-          <FormControl>
+          <FormControl isRequired>
             <FormLabel>Adults</FormLabel>
-            <Select placeholder="Select option" borderColor="black">
+            <Select borderColor="black">
               {' '}
               <option value="qunt1">1 </option>
               <option value="qunt2">2 </option>
               <option value="qunt3">3 </option>
               <option value="qunt4">4 </option>
             </Select>
+          </FormControl>
+          <FormControl>
             <FormLabel>Children</FormLabel>
-            <Select placeholder="Select option" borderColor="black"></Select>
+            <Select placeholder="Select option" borderColor="black">
+              <option value="cd0">0 </option>
+              <option value="cd1">1 </option>
+              <option value="cd2">2 </option>
+              <option value="cd3">3 </option>
+            </Select>
             <FormLabel>Babies</FormLabel>
-            <Select placeholder="Select option" borderColor="black"></Select>
+            <Select placeholder="Select option" borderColor="black">
+              <option value="bb0">0 </option>
+              <option value="bb1">1 </option>
+              <option value="bb2">2 </option>
+              <option value="bb3">3 </option>
+            </Select>
           </FormControl>
         </VStack>
       </>
@@ -89,9 +102,9 @@ function Formrequest() {
       case 1:
         return <FormAccount />;
       case 2:
-        return <FormAddress />;
+        return <FormDetailsTravel />;
       case 3:
-        return <FormPersonalDetails />;
+        return <FormAddress />;
       default:
         return <FormAccount />;
     }
