@@ -20,7 +20,9 @@ export default function ContactInfo() {
           <Text pl={2}>rayameltravel@gmail.com</Text>
         </Flex>
         <Flex alignItems="center">
-          <FaPhone />{' '}
+          <Flex pr={2}>
+            <FaPhone />
+          </Flex>
           <Link
             href="https://api.whatsapp.com/send/?phone=%2B5579999441661&text&type=phone_number&app_absent=0"
             isExternal

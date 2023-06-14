@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <Flex as="nav" alignItems={'center'} justify="space-between" bg="white">
       <Flex>
-        <Image src={logo} maxH={['70px', '90px']}></Image>
+        <Image src={logo} maxH={['80px', '90px']}></Image>
       </Flex>
       <Button
         variant="ghost"

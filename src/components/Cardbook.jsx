@@ -7,7 +7,13 @@ export default function Cardbook() {
 
   return (
     <Box>
-      <Flex bg={'black'} h={100} justifyContent="center" alignItems={'center'}>
+      <Flex
+        minH={'15vh'}
+        bg={'black'}
+        h={100}
+        justifyContent="center"
+        alignItems={'center'}
+      >
         <Text as="b" color="white" pr={5}>
           BOOK NOW YOUR TRANSFER
         </Text>

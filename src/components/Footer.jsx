@@ -25,12 +25,14 @@ export default function Footer() {
           {/* phone */}
           <Flex alignItems="center">
             <FaPhone />
-            <Link
-              href="https://api.whatsapp.com/send/?phone=%2B5579999441661&text&type=phone_number&app_absent=0"
-              isExternal
-            >
-              351 924 446 857
-            </Link>
+            <Flex pl={2}>
+              <Link
+                href="https://api.whatsapp.com/send/?phone=%2B5579999441661&text&type=phone_number&app_absent=0"
+                isExternal
+              >
+                351 924 446 857
+              </Link>
+            </Flex>
           </Flex>
 
           <CopyrightNotice />

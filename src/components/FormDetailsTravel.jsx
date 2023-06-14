@@ -10,19 +10,19 @@ import {
 } from '@chakra-ui/react';
 
 function FormDetailsTravel() {
-  // const initialValues = {
-  //   sobrenome: '',
-  //   dataViajem: '',
-  //   horadeviajem: '',
-  //   horapickup: '',
-  //   horavoo: '',
-  // };
+  const initialValues = {
+    sobrenome: '',
+    dataViajem: '',
+    horadeviajem: '',
+    horapickup: '',
+    horavoo: '',
+  };
 
-  // const handleSubmit = (values, { setSubmitting }) => {
-  //   console.log(values);
+  const handleSubmit = (values, { setSubmitting }) => {
+    console.log(values);
 
-  //   setSubmitting(false);
-  // };
+    setSubmitting(false);
+  };
 
   return (
     <>
@@ -36,6 +36,7 @@ function FormDetailsTravel() {
           <FormLabel>Hour / Flight</FormLabel>
           <Input placeholder="Select Date and Time" size="md" type="time" />
         </FormControl>
+
         <FormControl borderColor="black" isRequired>
           <FormLabel>Date time pickup</FormLabel>
           <Input
@@ -44,14 +45,18 @@ function FormDetailsTravel() {
             type="datetime-local"
           />
         </FormControl>
+
         <FormControl borderColor="black" isRequired>
           <FormLabel>Return</FormLabel>
           <Select placeholder="Select option" borderColor="black">
-            <option value="yes">yes </option>
-            <option value="no">no </option>
+            <option value="yes">yes</option>
+            <option value="no">no</option>
           </Select>
+        </FormControl>
+
+        <FormControl borderColor="black">
           <FormLabel>Promo Code</FormLabel>
-          <InputGroup borderColor="black">
+          <InputGroup>
             <InputLeftElement pointerEvents="none">
               <QuestionOutlineIcon color="gray.600" />
             </InputLeftElement>

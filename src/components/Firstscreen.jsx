@@ -24,7 +24,7 @@ export default function Firstscreen() {
         backgroundRepeat="no-repeat"
         backgroundSize="cover"
         w="100%"
-        minHeight={['55vh', '80vh']}
+        minHeight={['68vh', '80vh']}
         display="flex"
         justifyContent="center"
         alignItems="center"
