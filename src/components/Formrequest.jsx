@@ -31,19 +31,7 @@ function Formrequest() {
     }
   };
 
-  const getCompStep = () => {
-    switch (step) {
-      case 1:
-        return <FormDestiny />;
-      case 2:
-        return <FormDetailsTravel />;
-      case 3:
-        return <FormAddress />;
-      default:
-        return <FormDestiny />;
-    }
-  };
-
+  
   const Step = ({ index, active }) => {
     return (
       <Center>
