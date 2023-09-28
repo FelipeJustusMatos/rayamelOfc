@@ -4,28 +4,23 @@ import {
   Card,
   Center,
   Divider,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  HStack,
-  Select,
-  VStack,
+  HStack
 } from '@chakra-ui/react';
 import { useState } from 'react';
+import FormDestiny from './FormDestiny';
 import FormAddress from './FormAddress';
 import FormDetailsTravel from './FormDetailsTravel';
 
 function Formrequest() {
+  const Steps = [1, 2, 3];
+  const [step, setStep] = useState(1);
+  
   const [pickupLocation, setPickupLocation] = useState('');
   const [dropOffLocation, setDropOffLocation] = useState('');
-  const [step, setStep] = useState(1);
 
-  const handlePickupLocationChange = e => {
-    setPickupLocation(e.target.value);
-  };
-
-  const handleDropOffLocationChange = e => {
-    setDropOffLocation(e.target.value);
+  const handleLocationChange = (pickup, dropOff) => {
+    setPickupLocation(pickup);
+    setDropOffLocation(dropOff);
   };
 
   const isInputInvalid = pickupLocation === '' || dropOffLocation === '';
@@ -35,78 +30,17 @@ function Formrequest() {
       setStep(step + 1);
     }
   };
-  const FormAccount = () => {
-    return (
-      <>
-        <VStack minH={'50vh'}>
-          <FormControl isRequired isInvalid={isInputInvalid}>
-            <FormLabel>Pick Up From</FormLabel>
-            <Select borderColor="black" onChange={handlePickupLocationChange}>
-              <option value="">select</option>
-              <option value="local2">Option 2</option>
-              <option value="local3">Option 3</option>
-              <option value="local4">Option 4</option>
-              <option value="local5">Option 5</option>
-            </Select>
-            {!isInputInvalid ? null : (
-              <FormErrorMessage>Local is required.</FormErrorMessage>
-            )}
-          </FormControl>
-
-          <FormControl isRequired isInvalid={isInputInvalid}>
-            <FormLabel isRequired> Drop Off to</FormLabel>
-            <Select onChange={handleDropOffLocationChange} borderColor="black">
-              <option value="">select</option>
-              <option value="local2">Option 2</option>
-              <option value="local3">Option 3</option>
-              <option value="local4">Option 4</option>
-              <option value="local5">Option 5</option>
-            </Select>{' '}
-            {!isInputInvalid ? null : (
-              <FormErrorMessage>Destino Local is required.</FormErrorMessage>
-            )}
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Adults</FormLabel>
-            <Select borderColor="black">
-              {' '}
-              <option value="qunt1">1 </option>
-              <option value="qunt2">2 </option>
-              <option value="qunt3">3 </option>
-              <option value="qunt4">4 </option>
-            </Select>
-          </FormControl>
-          <FormControl>
-            <FormLabel>Children</FormLabel>
-            <Select placeholder="Select option" borderColor="black">
-              <option value="cd0">0 </option>
-              <option value="cd1">1 </option>
-              <option value="cd2">2 </option>
-              <option value="cd3">3 </option>
-            </Select>
-            <FormLabel>Babies</FormLabel>
-            <Select placeholder="Select option" borderColor="black">
-              <option value="bb0">0 </option>
-              <option value="bb1">1 </option>
-              <option value="bb2">2 </option>
-              <option value="bb3">3 </option>
-            </Select>
-          </FormControl>
-        </VStack>
-      </>
-    );
-  };
 
   const getCompStep = () => {
     switch (step) {
       case 1:
-        return <FormAccount />;
+        return <FormDestiny />;
       case 2:
         return <FormDetailsTravel />;
       case 3:
         return <FormAddress />;
       default:
-        return <FormAccount />;
+        return <FormDestiny />;
     }
   };
 
@@ -127,8 +61,6 @@ function Formrequest() {
     );
   };
 
-  const Steps = [1, 2, 3];
-
   return (
     <>
       <Card align="center" justifyContent="center">
@@ -141,7 +73,17 @@ function Formrequest() {
 
           <Divider my={4} borderColor="blackAlpha.700" />
 
-          <Box w="80%">{getCompStep()}</Box>
+          <Box w="80%">
+            {step === 1 && (
+              <FormDestiny
+                pickupLocation={pickupLocation}
+                dropOffLocation={dropOffLocation}
+                onLocationChange={handleLocationChange}
+              />
+            )}
+            {step === 2 && <FormDetailsTravel />}
+            {step === 3 && <FormAddress />}
+          </Box>
 
           <HStack mt={4}>
             <Button
