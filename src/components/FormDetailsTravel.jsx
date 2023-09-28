@@ -75,7 +75,7 @@ function FormDetailsTravel() {
         </FormControl>
 
         <FormControl borderColor="black">
-          <FormLabel >Promo Code</FormLabel>
+          <FormLabel>Promo Code</FormLabel>
           <InputGroup onChange={promoCodeBook}>
             <InputLeftElement pointerEvents="none">
               <QuestionOutlineIcon color="gray.600" />
