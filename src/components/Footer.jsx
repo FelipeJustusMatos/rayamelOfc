@@ -30,7 +30,7 @@ export default function Footer() {
                 href="https://api.whatsapp.com/send/?phone=%2B5579999441661&text&type=phone_number&app_absent=0"
                 isExternal
               >
-                351 924 446 857
+                351 924 446 857aaaaaaa
               </Link>
             </Flex>
           </Flex>

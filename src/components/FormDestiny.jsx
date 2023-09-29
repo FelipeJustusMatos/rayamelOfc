@@ -5,22 +5,26 @@ import {
   Select,
   VStack,
 } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function FormDestiny({ pickupLocation, dropOffLocation, onLocationChange }) {
-
+function FormDestiny({ pickupLocation, dropOffLocation, OnDestinyChange, allDates }) {
   const [adults, setAdults] = useState("Um Adulto");
   const [children, setChildren] = useState("");
   const [babies, setBabies] = useState("");
   const isInputInvalid = pickupLocation === '' || dropOffLocation === '';
-  
-  
-  console.log(pickupLocation);
-  console.log(dropOffLocation);
-  console.log(adults);
-  console.log(children);
-  console.log(babies);
-  
+
+  // Atualiza allDates quando adults, children ou babies mudam
+  useEffect(() => {
+    const updatedAllDates = {
+      pickupLocation,
+      dropOffLocation,
+      adults,
+      children,
+      babies,
+    };
+    OnDestinyChange(pickupLocation, dropOffLocation, adults, children, babies);
+  }, [adults, children, babies, pickupLocation, dropOffLocation, OnDestinyChange]);
+
   const adultsPassager = e => {
     setAdults(e.target.value);
   };
@@ -35,12 +39,12 @@ function FormDestiny({ pickupLocation, dropOffLocation, onLocationChange }) {
 
   const handlePickupLocationChange = e => {
     const newLocation = e.target.value;
-    onLocationChange(newLocation, dropOffLocation);
+    OnDestinyChange(newLocation, dropOffLocation, adults, children, babies);
   };
 
   const handleDropOffLocationChange = e => {
     const newLocation = e.target.value;
-    onLocationChange(pickupLocation, newLocation);
+    OnDestinyChange(pickupLocation, newLocation, adults, children, babies);
   };
 
   
