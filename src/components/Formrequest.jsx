@@ -76,15 +76,6 @@ function Formrequest() {
     address,
   };
 
-  useEffect(() => {
-    console.log(`Alldates: ${JSON.stringify(allDates)} `);
-    console.log(`Location aqui: ${pickupLocation}`);
-    console.log(`DropOff aqui: ${dropOffLocation}`);
-    console.log(`adults aqui: ${adults}`);
-    console.log(`children aqui: ${children}`);
-    console.log(`babies aqui: ${JSON.stringify(babies)}`);
-  }, [allDates]);
-
   const isStep1Valid = pickupLocation !== '' && dropOffLocation !== '';
   const isStep2Valid = date !== '' && hora !== '' && dateTimePickUp !== '' && returnBook !== '';
 
@@ -149,10 +140,6 @@ function Formrequest() {
       });
   }
 
-  const limparDados = () => {
-    setEnviado(false);
-    // Redefina todos os outros estados do formulário para seus valores iniciais aqui.
-  };
 
   return (
     <>
