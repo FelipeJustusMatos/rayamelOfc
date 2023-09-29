@@ -117,7 +117,7 @@ function Formrequest() {
 
     const templateParams = {
       from_name: fullName,
-      message: allDates,
+      message: JSON.stringify(allDates),
       email: email,
     }
 
