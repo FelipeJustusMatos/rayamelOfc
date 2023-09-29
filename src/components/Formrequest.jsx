@@ -187,7 +187,7 @@ function Formrequest() {
 
           {enviado ? (
             <Box>
-              <h1>Dados enviados com sucesso! Verifique seu e-mail</h1>
+              <h1>Dados enviados com sucesso! Logo te retornaremos!</h1>
             
             </Box>
           ) : (
