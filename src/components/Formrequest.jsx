@@ -15,6 +15,7 @@ import emailjs from '@emailjs/browser';
 function Formrequest() {
   const Steps = [1, 2, 3];
   const [step, setStep] = useState(1);
+  const [enviado, setEnviado] = useState(false);
 
   const [adults, setAdults] = useState("Um Adulto");
   const [children, setChildren] = useState("");
@@ -28,12 +29,12 @@ function Formrequest() {
   const [returnBook, setReturnBook] = useState("");
   const [promo, setPromo] = useState("");
 
-  const [fistName, setFirstName] = useState(""); // Você pode remover isso
-  const [lastName, setLastName] = useState(""); // Você pode remover isso
+  const [fistName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const fullName = (`${fistName} + ${lastName}`)
+  const fullName = `${fistName} + ${lastName}`;
 
   const handleDestinyChange = (pickup, dropOff, adults, children, babies) => {
     setAdults(adults);
@@ -52,8 +53,8 @@ function Formrequest() {
   };
 
   const handleAddressChange = ({ firstName, lastName, email, phone, address }) => {
-    setFirstName(firstName); // Você pode remover isso
-    setLastName(lastName);   // Você pode remover isso
+    setFirstName(firstName);
+    setLastName(lastName);
     setEmail(email);
     setPhone(phone);
     setAddress(address);
@@ -73,15 +74,15 @@ function Formrequest() {
     email,
     phone,
     address,
-  }
+  };
 
   useEffect(() => {
     console.log(`Alldates: ${JSON.stringify(allDates)} `);
-    console.log(`Location aqui: ${pickupLocation}`)
-    console.log(`DropOff aqui: ${dropOffLocation}`)
-    console.log(`adults aqui: ${adults}`)
-    console.log(`children aqui: ${children}`)
-    console.log(`babies aqui: ${JSON.stringify(babies)}`)
+    console.log(`Location aqui: ${pickupLocation}`);
+    console.log(`DropOff aqui: ${dropOffLocation}`);
+    console.log(`adults aqui: ${adults}`);
+    console.log(`children aqui: ${children}`);
+    console.log(`babies aqui: ${JSON.stringify(babies)}`);
   }, [allDates]);
 
   const isStep1Valid = pickupLocation !== '' && dropOffLocation !== '';
@@ -112,23 +113,46 @@ function Formrequest() {
     );
   };
 
-  function sendEmail(e){
-    e.preventDefault();
+  function sendEmail(e) {
 
     const templateParams = {
       from_name: fullName,
       message: JSON.stringify(allDates),
       email: email,
-    }
+    };
 
-    emailjs.send("service_wnsgv49", "template_6rn1cu8", templateParams, "AHp6no9dogt9WMJcp")
-    .then((response) => {
-      console.log("EMAIL ENVIADO", response.status, response.text)
-    
-    }, (err) => {
-      console.log("ERRO: ", err)
-    })
+    emailjs
+      .send("service_wnsgv49", "template_6rn1cu8", templateParams, "AHp6no9dogt9WMJcp")
+      .then((response) => {
+        console.log("EMAIL ENVIADO", response.status, response.text);
+        setEnviado(true);
+
+        // Limpar os campos após o envio bem-sucedido
+        setAdults("Um Adulto");
+        setChildren("");
+        setBabies("");
+        setPickupLocation("");
+        setDropOffLocation("");
+        setDate("");
+        setHora("");
+        setDateTimePickUp("");
+        setReturnBook("");
+        setPromo("");
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPhone("");
+        setAddress("");
+      })
+      .catch((err) => {
+        console.log("ERRO: ", err);
+      });
   }
+
+  const limparDados = () => {
+    setEnviado(false);
+    // Redefina todos os outros estados do formulário para seus valores iniciais aqui.
+  };
 
   return (
     <>
@@ -174,21 +198,28 @@ function Formrequest() {
             )}
           </Box>
 
-          <HStack mt={4}>
-            <Button
-              onClick={() => setStep(step - 1)}
-              isDisabled={step <= 1}
-            >
-              Voltar
-            </Button>
-            <Button
-              bg="#ECB939"
-              onClick={step === 3 ? sendEmail : handleNextStep}
-              isDisabled={isInputInvalid}
-            >
-              {step === 3 ? 'Enviar' : 'Próximo'}
-            </Button>
-          </HStack>
+          {enviado ? (
+            <Box>
+              <h1>Dados enviados com sucesso! Verifique seu e-mail</h1>
+            
+            </Box>
+          ) : (
+            <HStack mt={4}>
+              <Button
+                onClick={() => setStep(step - 1)}
+                isDisabled={step <= 1}
+              >
+                Voltar
+              </Button>
+              <Button
+                bg="#ECB939"
+                onClick={step === 3 ? sendEmail : handleNextStep}
+                isDisabled={isInputInvalid}
+              >
+                {step === 3 ? 'Enviar' : 'Próximo'}
+              </Button>
+            </HStack>
+          )}
         </Center>
       </Card>
     </>
