@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -6,24 +7,35 @@ import {
   Divider,
   HStack
 } from '@chakra-ui/react';
-import { useState } from 'react';
 import FormDestiny from './FormDestiny';
 import FormAddress from './FormAddress';
 import FormDetailsTravel from './FormDetailsTravel';
+import emailjs from '@emailjs/browser';
 
 function Formrequest() {
   const Steps = [1, 2, 3];
   const [step, setStep] = useState(1);
-  
-  //Constantes Do FormDestiny
+
   const [adults, setAdults] = useState("Um Adulto");
   const [children, setChildren] = useState("");
   const [babies, setBabies] = useState("");
   const [pickupLocation, setPickupLocation] = useState('');
   const [dropOffLocation, setDropOffLocation] = useState('');
 
-    
-    const handleDestinyChange = (pickup, dropOff,adults,children,babies) => {
+  const [date, setDate] = useState("");
+  const [hora, setHora] = useState("");
+  const [dateTimePickUp, setDateTimePickUp] = useState("");
+  const [returnBook, setReturnBook] = useState("");
+  const [promo, setPromo] = useState("");
+
+  const [fistName, setFirstName] = useState(""); // Você pode remover isso
+  const [lastName, setLastName] = useState(""); // Você pode remover isso
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const fullName = (`${fistName} + ${lastName}`)
+
+  const handleDestinyChange = (pickup, dropOff, adults, children, babies) => {
     setAdults(adults);
     setChildren(children);
     setBabies(babies);
@@ -31,60 +43,51 @@ function Formrequest() {
     setDropOffLocation(dropOff);
   };
 
+  const handleDetailsChange = (newDate, hora, dateTimePickUp, returnBook, promo) => {
+    setDate(newDate);
+    setHora(hora);
+    setDateTimePickUp(dateTimePickUp);
+    setReturnBook(returnBook);
+    setPromo(promo);
+  };
+
+  const handleAddressChange = ({ firstName, lastName, email, phone, address }) => {
+    setFirstName(firstName); // Você pode remover isso
+    setLastName(lastName);   // Você pode remover isso
+    setEmail(email);
+    setPhone(phone);
+    setAddress(address);
+  };
+
   const allDates = {
     pickupLocation,
     dropOffLocation,
     adults,
     children,
-    babies
+    babies,
+    date,
+    hora,
+    dateTimePickUp,
+    returnBook,
+    promo,
+    email,
+    phone,
+    address,
   }
 
-  console.log(`Alldates: ${JSON.stringify(allDates)} `);
-  console.log(`Location aqui: ${pickupLocation}`)
-  console.log(`DropOff aqui: ${dropOffLocation}`)
-  console.log(`adults aqui: ${adults}`)
-  console.log(`children aqui: ${children}`)
-  console.log(`babies aqui: ${JSON.stringify(babies)}`)
+  useEffect(() => {
+    console.log(`Alldates: ${JSON.stringify(allDates)} `);
+    console.log(`Location aqui: ${pickupLocation}`)
+    console.log(`DropOff aqui: ${dropOffLocation}`)
+    console.log(`adults aqui: ${adults}`)
+    console.log(`children aqui: ${children}`)
+    console.log(`babies aqui: ${JSON.stringify(babies)}`)
+  }, [allDates]);
 
-  
-  //Constantes do FormDetailsTravel
-  const [date, setDate] = useState("");
-  const [hora, setHora] = useState("");
-  const [dateTimePickUp, setDateTimePickUp] = useState("");
-  const [returnBook, setReturnBook] = useState("");
-  const [dateTimeBook, setDateTimeBook] = useState("");
-  const [retorno, setRetorno] = useState("");
-  const [promo, setPromo] = useState("");
+  const isStep1Valid = pickupLocation !== '' && dropOffLocation !== '';
+  const isStep2Valid = date !== '' && hora !== '' && dateTimePickUp !== '' && returnBook !== '';
 
-  const handleDetailsChange = (date, hora, dateTimePickUp,returnBook, dateTimeBook, retorno, promo) => {
-    setDate(date);
-    setHora(hora);
-    setDateTimePickUp(dateTimePickUp);
-    setReturnBook(returnBook);
-    setDateTimeBook(dateTimeBook);
-    setRetorno(retorno);
-    setPromo(promo);
-  };
-
-  //Constantes do FormAddress
-  const [fistName, setFistName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const fullName = (`${fistName} + ${lastName}`)
-
-  const handleAddressChange = (email,address, phone) => {
-    setEmail(email);
-    setPhone(phone);
-    setAddress(address);
-  }
-
-
-
-
-
-  const isInputInvalid = pickupLocation === '' || dropOffLocation === '';
+  const isInputInvalid = (step === 1 && !isStep1Valid) || (step === 2 && !isStep2Valid);
 
   const handleNextStep = () => {
     if (step !== 3) {
@@ -92,7 +95,6 @@ function Formrequest() {
     }
   };
 
-  
   const Step = ({ index, active }) => {
     return (
       <Center>
@@ -110,6 +112,24 @@ function Formrequest() {
     );
   };
 
+  function sendEmail(e){
+    e.preventDefault();
+
+    const templateParams = {
+      from_name: fullName,
+      message: allDates,
+      email: email,
+    }
+
+    emailjs.send("service_wnsgv49", "template_6rn1cu8", templateParams, "AHp6no9dogt9WMJcp")
+    .then((response) => {
+      console.log("EMAIL ENVIADO", response.status, response.text)
+    
+    }, (err) => {
+      console.log("ERRO: ", err)
+    })
+  }
+
   return (
     <>
       <Card align="center" justifyContent="center">
@@ -125,7 +145,7 @@ function Formrequest() {
           <Box w="80%">
             {step === 1 && (
               <FormDestiny
-                adults ={adults}
+                adults={adults}
                 children={children}
                 babies={babies}
                 pickupLocation={pickupLocation}
@@ -134,38 +154,36 @@ function Formrequest() {
               />
             )}
             {step === 2 && (
-              <FormDetailsTravel 
+              <FormDetailsTravel
                 date={date}
                 hora={hora}
-                dateTimeBook={dateTimeBook}
+                dateTimeBook={dateTimePickUp}
                 dateTimePickUp={dateTimePickUp}
                 returnBook={returnBook}
-                retorno={retorno}
                 promo={promo}
                 OnDetailsChange={handleDetailsChange}
-
               />
             )}
             {step === 3 && (
-            <FormAddress 
-              email={email}
-              phone={phone}
-              address={address}
-              OnAddressChange={handleAddressChange}
-            />
+              <FormAddress
+                email={email}
+                phone={phone}
+                address={address}
+                OnAddressChange={handleAddressChange}
+              />
             )}
           </Box>
 
           <HStack mt={4}>
             <Button
               onClick={() => setStep(step - 1)}
-              isDisabled={step <= 1 ? true : false}
+              isDisabled={step <= 1}
             >
               Voltar
             </Button>
             <Button
               bg="#ECB939"
-              onClick={handleNextStep}
+              onClick={step === 3 ? sendEmail : handleNextStep}
               isDisabled={isInputInvalid}
             >
               {step === 3 ? 'Enviar' : 'Próximo'}

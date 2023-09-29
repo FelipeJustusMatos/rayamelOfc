@@ -8,24 +8,30 @@ import {
   Select,
   VStack,
 } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function FormDetailsTravel() {
+function FormDetailsTravel({ OnDetailsChange }) {
   const [date, setDate] = useState("");
   const [hora, setHora] = useState("");
   const [dateTimePickUp, setDateTimePickUp] = useState("");
   const [retorno, setRetorno] = useState("");
   const [promo, setPromo] = useState("");
 
-  console.log(date);
-  console.log(hora);
-  console.log(dateTimePickUp);
-  console.log(retorno);
-  console.log(promo);
+  useEffect(() => {
+    const updatedAllDates = {
+      date,
+      hora,
+      dateTimePickUp,
+      retorno,
+      promo,
+    };
+    OnDetailsChange(date, hora, dateTimePickUp, retorno, promo);
+  }, [date, hora, dateTimePickUp, retorno, promo, OnDetailsChange]);
 
   const dateBook = e => {
     setDate(e.target.value);
   };
+
   const horaBook = e => {
     setHora(e.target.value);
   };
@@ -74,7 +80,7 @@ function FormDetailsTravel() {
           </Select>
         </FormControl>
 
-        <FormControl borderColor="black">
+        <FormControl borderColor="black" >
           <FormLabel>Promo Code</FormLabel>
           <InputGroup onChange={promoCodeBook}>
             <InputLeftElement pointerEvents="none">

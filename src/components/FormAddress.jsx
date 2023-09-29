@@ -1,18 +1,16 @@
 import { Flex, FormControl, FormHelperText, Input, InputGroup, VStack } from '@chakra-ui/react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react'; 
 
-const FormAddress = () => {
-  const [fistName, setFirstName] = useState("");
+function FormAddress({ OnAddressChange }) {
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
-  console.log(fistName);
-  console.log(lastName);
-  console.log(email);
-  console.log(phone);
-  console.log(address);
+  useEffect(() => {
+    OnAddressChange({ firstName, lastName, email, phone, address });
+  }, [firstName, lastName, email, phone, address, OnAddressChange]);
 
   const addressName = e => {
     setFirstName(e.target.value);
@@ -47,16 +45,15 @@ const FormAddress = () => {
         </FormControl>
       </Flex>
       <FormControl isrequired="true">   
-      <InputGroup>
-        <Input type="email" placeholder='Email' borderColor="black" onChange={sendEmail}/>                 
-      </InputGroup>
-      <FormHelperText>We'll never share your email.</FormHelperText>
+        <InputGroup>
+          <Input type="email" placeholder='Email' borderColor="black" onChange={sendEmail}/>                 
+        </InputGroup>
+        <FormHelperText>We'll never share your email.</FormHelperText>
       </FormControl>
       <FormControl isrequired="true">        
-       <InputGroup> 
-       
-       <Input placeholder='Phone' borderColor="black" onChange={sendPhone}>            
-        </Input>
+        <InputGroup> 
+          <Input placeholder='Phone' borderColor="black" onChange={sendPhone}>            
+          </Input>
         </InputGroup>
       </FormControl>
       <FormControl isrequired="true">        
@@ -64,7 +61,6 @@ const FormAddress = () => {
         </Input> 
         <FormHelperText>We'll send an email and contact you with more information and prices.</FormHelperText>
       </FormControl>
-     
     </VStack>
   );
 };
