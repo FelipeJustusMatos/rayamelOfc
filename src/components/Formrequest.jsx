@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -7,10 +6,11 @@ import {
   Divider,
   HStack
 } from '@chakra-ui/react';
-import FormDestiny from './FormDestiny';
-import FormAddress from './FormAddress';
-import FormDetailsTravel from './FormDetailsTravel';
 import emailjs from '@emailjs/browser';
+import React, { useState } from 'react';
+import FormAddress from './FormAddress';
+import FormDestiny from './FormDestiny';
+import FormDetailsTravel from './FormDetailsTravel';
 
 function Formrequest() {
   const Steps = [1, 2, 3];
@@ -34,7 +34,7 @@ function Formrequest() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const fullName = `${fistName} + ${lastName}`;
+  const fullName = `${fistName} ${lastName}`;
 
   const handleDestinyChange = (pickup, dropOff, adults, children, babies) => {
     setAdults(adults);
@@ -58,6 +58,22 @@ function Formrequest() {
     setEmail(email);
     setPhone(phone);
     setAddress(address);
+  };
+
+  const dataLabels = {
+    pickupLocation: "Local de busca do passageiro",
+    dropOffLocation: "Destino",
+    adults: "Adultos",
+    children: "Crianças",
+    babies: "Bebês",
+    date: "Data",
+    hora: "Hora",
+    dateTimePickUp: "Data e hora da busca",
+    returnBook: "Reserva de retorno",
+    promo: "Código promocional",
+    email: "Email",
+    phone: "Telefone",
+    address: "Endereço",
   };
 
   const allDates = {
@@ -105,10 +121,16 @@ function Formrequest() {
   };
 
   function sendEmail(e) {
-
+    const formattedData = {};
+    for (const key in allDates) {
+      if (dataLabels.hasOwnProperty(key)) {
+        formattedData[dataLabels[key]] = allDates[key];
+      }
+    }
+    const formattedJSON = JSON.stringify(formattedData, null, 2);
     const templateParams = {
       from_name: fullName,
-      message: JSON.stringify(allDates),
+      message: formattedJSON,
       email: email,
     };
 
@@ -139,7 +161,6 @@ function Formrequest() {
         console.log("ERRO: ", err);
       });
   }
-
 
   return (
     <>
@@ -188,7 +209,6 @@ function Formrequest() {
           {enviado ? (
             <Box>
               <h1>Dados enviados com sucesso! Logo te retornaremos!</h1>
-            
             </Box>
           ) : (
             <HStack mt={4}>
@@ -196,7 +216,7 @@ function Formrequest() {
                 onClick={() => setStep(step - 1)}
                 isDisabled={step <= 1}
               >
-                Voltar
+                Volta
               </Button>
               <Button
                 bg="#ECB939"
